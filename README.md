@@ -4,11 +4,11 @@ Regular expression parser and matcher implemented from scratch in Haskell
 All characters can be used as alphabet, with the exception of the following 5: $()+*
 
 Where R and r are valid RegEx, the following are valid:
- Rr, the concatenation of R and r.
- R+r, a union of R and r.
- R*, the Kleene Star (repetition) of R.
- As an example,
- ((Rr*)+r)(((r))): parentheses can be used to group, and can be used extraneously as well.
+- Rr, the concatenation of R and r.
+- R+r, a union of R and r.
+- R*, the Kleene Star (repetition) of R.
+- As an example,
+- - ((Rr*)+r)(((r))): parentheses can be used to group, and can be used extraneously as well.
 
 '$' is a special character which corresponds to the empty string ("epsilon").
 
