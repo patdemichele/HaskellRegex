@@ -1,6 +1,8 @@
 # HaskellRegex
 Regular expression parser and matcher implemented from scratch in Haskell
 
+**Forming RegEx**
+
 All characters can be used as alphabet, with the exception of the following 5: $()+*
 
 Where R and r are valid RegEx, the following are valid:
@@ -13,9 +15,16 @@ Where R and r are valid RegEx, the following are valid:
 
 The empty RegEx can be conveyed by the empty string. For clarity, users will want to nest it in parentheses. "()" is the most appropriate expression of the empty RegEx.
 
+**The match function**
+
+This is my code's core function. `match "ab*(c+d)" "abbbd"` is an example of the function being called. This call, for your information, returns `True`.
+
+**Clarifying note**
+
 I have tried to implement RegEx in a manner that minimizes use of RegEx by imported functions and other shortcuts under the surface. Obviously, all interpreters and compilers use a lot RegEx themselves, so this goal is relatively futile. Moreover, pattern matching in function definitions is an essential advantage of Haskell, and I didn't avoid that. Still, I consider the implementation to be reasonably "from scratch" due to its barebones implementation of Brzozowski derivatives from my own defined types.
 
-TODO:
+**TODO**
+
 - eliminate need for "$" as special epsilon character
 - utilize escape character mechanism to allow for use of ()+* in RegEx
 - implement common RegEx shortcuts to extend model (e.g. A-z, brackets, etc.)
