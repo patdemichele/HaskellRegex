@@ -66,4 +66,16 @@ reg_match reg (x:xs) = reg_match (deriv reg x) xs -- recursive string match
 match :: [Char] -> [Char] -> Bool -- full implementation with strings
 match sreg s = reg_match (parsereg sreg) s
 
+-- first regex of maximum length
 
+from_beginning :: [Char] -> Reg -> Maybe [Char]
+from_beginning [] reg = Nothing -- return empty string
+from_beginning s reg = if reg_match reg s then (Just s) else from_beginning (init s) reg
+
+first_match :: [Char] -> Reg -> Maybe [Char]
+first_match [] reg = Nothing
+first_match s reg = if y /= Nothing then y else (first_match (tail s) reg)
+	where y = from_beginning s reg
+
+fms :: [Char] -> [Char] -> Maybe [Char] -- first match string
+fms c r = first_match c (parsereg r)
