@@ -22,13 +22,14 @@ p_split_no_star x
 p_split :: [Char] -> Int
 p_split x = let k=p_split_no_star x in k + length (takeWhile (== '*') (drop k x)) -- adds stars
 
+
 --REGULAR EXPRESSION CONSTRUCTION FROM STRING
 parsereg :: [Char] -> Reg -- parses a regex string to Reg
 parsereg [] = Emp -- empty string corresponds to empty expression
 parsereg ['$'] = Eps -- we use dollar sign for eps
 parsereg [x] = (Cha x) -- single character
 parsereg other
-	| last other == '*' = Rep (parsereg (init other))
+	| last other == '*' && l == length other = Rep (parsereg (init other))
 	| head other == '(' && last other == ')' && l == length other = parsereg (tail (init other))
 	| head y == '+' = Alt (parsereg x) (parsereg (tail y))
 	| otherwise = Cat (parsereg x) (parsereg y)
