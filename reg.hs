@@ -1,3 +1,17 @@
+Module Reg 
+(Reg,
+scan_inc,
+p_split_no_star,
+p_split,
+parsereg,
+nullable,
+deriv,
+reg_match,
+match,
+from_beginning,
+first_match,
+fms) where
+
 --REGULAR EXPRESSION TYPE DEF
 data Reg = Eps | Emp | Cha Char | Rep Reg | Cat Reg Reg | Alt Reg Reg deriving (Show) 
 -- (Show) works fine for printing
