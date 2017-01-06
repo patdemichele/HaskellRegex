@@ -3,7 +3,9 @@ Regular expression parser and matcher implemented from scratch in Haskell
 
 **Forming RegEx**
 
-All characters can be used as alphabet, with the exception of the following 5: $()+*
+All characters can be used as alphabet, with the exception of the five characters on the next line.
+
+$()+*
 
 Where R and r are valid RegEx, the following are valid:
 - Rr, the concatenation of R and r.
